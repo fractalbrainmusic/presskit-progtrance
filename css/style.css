@@ -380,34 +380,36 @@ footer {
         height: 120px;
     }
 
-    /* --- CORREÇÃO #1: FONTE DA BIO --- */
     #about p {
-        font-size: 0.8rem; /* Fonte ainda menor */
-        line-height: 1.4;  /* Espaçamento entre linhas mais justo */
-        animation: none;   /* Desativa a animação de pulso no celular para melhor legibilidade */
-        text-shadow: 0 0 5px #000; /* Mantém uma sombra de texto simples */
+        font-size: 0.8rem;
+        line-height: 1.4;
+        animation: none;
+        text-shadow: 0 0 5px #000;
     }
 
     #about {
         background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url('../images/bio-fractal-vertical.png');
     }
 
-    /* --- CORREÇÃO #2: LAYOUT DA SEÇÃO DE CONTATO --- */
     .contact-buttons-container {
-        flex-direction: column; /* Coloca os botões um sobre o outro */
-        gap: 0; /* Remove o espaço principal entre eles */
+        flex-direction: column;
+        align-items: stretch; /* Faz os botões ocuparem 100% da largura */
+        gap: 0;
+    }
+    
+    /* --- ALTERAÇÃO SOLICITADA AQUI --- */
+    .contact-buttons-container .email-button-wrapper {
+        text-align: center; /* Centraliza o botão de e-mail */
     }
 
     .copy-tooltip {
-        position: relative; /* Remove o posicionamento absoluto */
-        bottom: auto;
-        left: auto;
-        transform: none;
-        margin: 15px 0; /* Adiciona espaçamento vertical entre os botões */
-        animation: fade-in-out 4s ease-in-out infinite; /* Mantém a animação */
+        position: relative;
+        order: -1;
+        margin: 0 0 15px 0; /* Espaço apenas abaixo da dica */
         background: none;
-        font-size: 0.8rem;
+        animation: fade-in-out 4s ease-in-out infinite;
         text-align: center;
-        width: 100%; /* Garante que tenha largura para se centralizar */
+        width: 100%;
+        font-size: 0.8rem;
     }
 }
