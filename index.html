@@ -22,7 +22,6 @@
 </head>
 <body>
 
-    <!-- --- FUNDO COM VÍDEO OTIMIZADO --- -->
     <div id="background-animation">
         <video autoplay loop muted playsinline poster="images/preview-image.png">
             <source src="assets/background-video.mp4" type="video/mp4">
@@ -119,18 +118,21 @@
             <section id="contact">
                 <p id="contact-text">Para shows, remixes e colaborações:</p>
                 <div class="contact-buttons-container">
-                    <a href="https://api.whatsapp.com/send?phone=5547999436167&text=Ol%C3%A1%2C%20gostaria%20de%20conversar%20com%20voc%C3%AA%20" target="_blank" class="contact-button whatsapp">
+                    <a href="https://api.whatsapp.com/send?phone=5547999436167&text=Ol%C3%A1%2C%2C%20gostaria%20de%20conversar%20com%20voc%C3%AA%20" target="_blank" class="contact-button whatsapp">
                         <i class="fab fa-whatsapp"></i> <span id="whatsapp-text">WhatsApp Booking</span>
                     </a>
                     
+                    <!-- --- ALTERAÇÃO AQUI: DICA DE CÓPIA SEPARADA PARA MELHOR CONTROLE --- -->
                     <div class="email-button-wrapper">
-                        <span id="copy-tooltip" class="copy-tooltip">Clique para copiar o E-mail</span>
+                        <span id="copy-tooltip-desktop" class="copy-tooltip desktop-only">Clique para copiar o E-mail</span>
                         <a href="#" id="copy-email-button" class="contact-button email">
                             <i class="fas fa-envelope"></i>
                             <span id="email-button-text">E-mail Booking: fractalbrainmusic@gmail.com</span>
                         </a>
                     </div>
                 </div>
+                <!-- Dica para mobile, fora do container dos botões -->
+                <span id="copy-tooltip-mobile" class="copy-tooltip mobile-only">Clique para copiar o E-mail</span>
             </section>
 
             <h2 id="title-materials">Materiais de Imprensa</h2>
