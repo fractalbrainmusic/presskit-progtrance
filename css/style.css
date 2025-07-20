@@ -394,19 +394,20 @@ footer {
     .contact-buttons-container {
         flex-direction: column;
         align-items: stretch;
-        gap: 0;
+        gap: 15px; /* Adiciona um espaço vertical entre os botões */
     }
     
     .contact-buttons-container .email-button-wrapper {
-        text-align: center; 
+        text-align: center;
     }
     
     /* --- ALTERAÇÃO SOLICITADA AQUI --- */
     .copy-tooltip {
-        position: relative;
+        position: static; /* Remove qualquer posicionamento especial */
+        display: block;
         order: -1;
-        /* Define margens iguais em cima e embaixo para centralizar */
-        margin: 15px 0 15px 0;
+        margin: 0; /* Remove a margem antiga */
+        padding: 0 0 15px 0; /* Adiciona espaço apenas abaixo do texto */
         background: none;
         animation: fade-in-out 4s ease-in-out infinite;
         text-align: center;
