@@ -381,16 +381,35 @@ footer {
     }
 
     .email-button-wrapper {
-        margin-top: 20px;
+        margin-top: 0; /* Remove a margem anterior */
     }
 
     #about p {
-        font-size: 0.9rem;
-        line-height: 1.5;
+        /* --- ALTERAÇÃO #1 AQUI --- */
+        font-size: 0.85rem; /* Reduz ainda mais a fonte da bio */
+        line-height: 1.45; /* Reduz o espaçamento entre linhas */
     }
 
     #about {
-        /* --- ALTERAÇÃO SOLICITADA AQUI --- */
         background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url('../images/bio-fractal-vertical.png');
+    }
+
+    /* --- ALTERAÇÃO #2 AQUI --- */
+    .contact-buttons-container {
+        flex-direction: column; /* Coloca os botões um sobre o outro */
+        gap: 0; /* Remove o espaçamento vertical entre eles */
+    }
+
+    .copy-tooltip {
+        position: relative; /* Muda o posicionamento para estático */
+        bottom: auto;
+        left: auto;
+        transform: none;
+        margin: 15px 0; /* Adiciona espaçamento vertical entre os botões */
+        animation: none; /* Remove a animação de piscar */
+        opacity: 1; /* Deixa o texto sempre visível */
+        visibility: visible;
+        background: none; /* Remove o fundo da caixa */
+        font-size: 0.8rem;
     }
 }
