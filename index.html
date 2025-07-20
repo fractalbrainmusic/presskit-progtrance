@@ -22,8 +22,7 @@
 </head>
 <body>
 
-    <!-- --- ALTERAÇÃO #1: OTIMIZAÇÃO DO VÍDEO --- -->
-    <!-- 'poster' mostra uma imagem estática enquanto o vídeo carrega -->
+    <!-- --- FUNDO COM VÍDEO OTIMIZADO --- -->
     <div id="background-animation">
         <video autoplay loop muted playsinline poster="images/preview-image.png">
             <source src="assets/background-video.mp4" type="video/mp4">
@@ -38,7 +37,6 @@
 
         <main>
             <div class="artist-photo-container">
-                <!-- 'loading="lazy"' faz a imagem carregar só quando estiver perto de aparecer na tela -->
                 <img src="images/artist-photo.png" alt="Foto do artista Fractal Brain" class="artist-photo">
             </div>
 
@@ -67,7 +65,6 @@
                 </p>
             </section>
 
-            <!-- --- ALTERAÇÃO #2: OTIMIZAÇÃO DAS IMAGENS --- -->
             <section id="studio-image-section">
                 <img src="images/studio-photo.jpg" alt="Fractal Brain no estúdio de produção musical" loading="lazy">
             </section>

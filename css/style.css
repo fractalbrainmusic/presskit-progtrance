@@ -380,6 +380,10 @@ footer {
         height: 120px;
     }
 
+    .email-button-wrapper {
+        margin-top: 0;
+    }
+
     #about p {
         font-size: 0.85rem;
         line-height: 1.45;
@@ -405,7 +409,6 @@ footer {
         visibility: visible;
         background: none;
         font-size: 0.8rem;
-        /* --- ALTERAÇÃO SOLICITADA AQUI --- */
-        text-align: center; /* Centraliza o texto */
+        text-align: center;
     }
 }
