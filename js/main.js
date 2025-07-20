@@ -1,27 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-    // --- Funcionalidade de Copiar E-mail ---
-    const emailButton = document.getElementById('copy-email-button');
-    if (emailButton) {
-        const emailButtonText = document.getElementById('email-button-text');
-        
-        emailButton.addEventListener('click', function(event) {
-            event.preventDefault(); 
-            const emailToCopy = 'fractalbrainmusic@gmail.com';
-            navigator.clipboard.writeText(emailToCopy).then(function() {
-                const currentLang = document.documentElement.lang;
-                emailButtonText.textContent = translations[currentLang].emailCopied;
-                setTimeout(function() {
-                    emailButtonText.textContent = translations[currentLang].emailBooking;
-                }, 2000);
-            });
-        });
-    }
-
-    // --- Funcionalidade de Tradução ---
-    const translateButton = document.getElementById('translate-button');
-    let currentLanguage = 'pt-br';
-
+    // --- O "dicionário" de traduções é movido para o topo ---
     const translations = {
         'pt-br': {
             'title-project': 'O Projeto',
@@ -69,19 +48,42 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
 
+    // --- Funcionalidade de Copiar E-mail (agora funciona, pois 'translations' já existe) ---
+    const emailButton = document.getElementById('copy-email-button');
+    if (emailButton) {
+        const emailButtonText = document.getElementById('email-button-text');
+        
+        emailButton.addEventListener('click', function(event) {
+            event.preventDefault(); 
+            const emailToCopy = 'fractalbrainmusic@gmail.com';
+
+            navigator.clipboard.writeText(emailToCopy).then(function() {
+                // Usa document.documentElement.lang para saber o idioma atual da página
+                const currentLang = document.documentElement.lang || 'pt-br';
+                emailButtonText.textContent = translations[currentLang].emailCopied;
+
+                setTimeout(function() {
+                    emailButtonText.textContent = translations[currentLang].emailBooking;
+                }, 2000);
+            });
+        });
+    }
+
+    // --- Funcionalidade de Tradução (agora funciona, pois 'translations' já existe) ---
+    const translateButton = document.getElementById('translate-button');
     if (translateButton) {
         translateButton.addEventListener('click', function() {
-            currentLanguage = currentLanguage === 'pt-br' ? 'en' : 'pt-br';
-            document.documentElement.lang = currentLanguage;
+            // Verifica o idioma atual e decide para qual traduzir
+            const currentLang = document.documentElement.lang === 'pt-br' ? 'en' : 'pt-br';
+            document.documentElement.lang = currentLang; // Atualiza o idioma na tag <html>
 
-            for (const key in translations[currentLanguage]) {
+            // Loop para traduzir todos os elementos com IDs
+            for (const key in translations[currentLang]) {
                 const element = document.getElementById(key);
                 if (element) {
-                    element.innerHTML = translations[currentLanguage][key];
+                    element.innerHTML = translations[currentLang][key];
                 }
             }
         });
     }
-});```
-
-Pronto. O texto da sua biografia está atualizado e a função de tradução continuará funcionando perfeitamente com o novo conteúdo.
+});
