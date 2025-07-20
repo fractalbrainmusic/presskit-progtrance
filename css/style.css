@@ -380,32 +380,34 @@ footer {
         height: 120px;
     }
 
+    /* --- CORREÇÃO #1: FONTE DA BIO --- */
     #about p {
-        font-size: 0.85rem;
-        line-height: 1.45;
+        font-size: 0.8rem; /* Fonte ainda menor */
+        line-height: 1.4;  /* Espaçamento entre linhas mais justo */
+        animation: none;   /* Desativa a animação de pulso no celular para melhor legibilidade */
+        text-shadow: 0 0 5px #000; /* Mantém uma sombra de texto simples */
     }
 
     #about {
         background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url('../images/bio-fractal-vertical.png');
     }
 
+    /* --- CORREÇÃO #2: LAYOUT DA SEÇÃO DE CONTATO --- */
     .contact-buttons-container {
-        flex-direction: column;
-        gap: 0;
+        flex-direction: column; /* Coloca os botões um sobre o outro */
+        gap: 0; /* Remove o espaço principal entre eles */
     }
 
     .copy-tooltip {
-        position: relative;
+        position: relative; /* Remove o posicionamento absoluto */
         bottom: auto;
         left: auto;
         transform: none;
-        margin: 15px 0;
-        animation: none;
-        opacity: 1;
-        visibility: visible;
+        margin: 15px 0; /* Adiciona espaçamento vertical entre os botões */
+        animation: fade-in-out 4s ease-in-out infinite; /* Mantém a animação */
         background: none;
         font-size: 0.8rem;
-        /* --- ALTERAÇÃO SOLICITADA AQUI --- */
-        text-align: center; /* Centraliza o texto */
+        text-align: center;
+        width: 100%; /* Garante que tenha largura para se centralizar */
     }
 }
