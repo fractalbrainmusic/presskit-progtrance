@@ -276,9 +276,7 @@ iframe { border: none; width: 100%; }
 #materials {
     text-align: center;
     padding: 25px;
-    border-left: 5px solid var(--primary-color);
 }
-
 
 .password-notice {
     font-size: 0.9rem;
@@ -336,45 +334,39 @@ footer {
     font-size: 0.9rem;
 }
 
-
-/* --- ALTERAÇÃO SOLICITADA AQUI: ESTILOS PARA DISPOSITIVOS MÓVEIS --- */
-/* Estas regras só serão aplicadas em telas com largura máxima de 768px (tablets e celulares) */
+/* --- ESTILOS PARA DISPOSITIVOS MÓVEIS --- */
 @media (max-width: 768px) {
 
     body {
-        padding: 10px; /* Reduz o espaçamento nas laterais do corpo */
+        padding: 10px;
     }
 
     .container {
-        padding: 15px; /* Reduz o espaçamento do container principal */
+        padding: 15px;
     }
 
     .hero {
-        min-height: 250px; /* Diminui a altura mínima do logo no cabeçalho */
+        min-height: 250px;
     }
 
     .artist-photo {
-        width: 50%; /* Diminui um pouco a foto do artista */
+        width: 50%;
         max-width: 200px;
     }
 
-    /* Reduz o tamanho de todos os títulos */
     h2 {
         font-size: 1.5rem;
     }
 
-    /* Ajusta o tamanho da fonte e o padding dos botões de contato para não quebrarem */
     .contact-button {
         padding: 10px 15px;
         font-size: 0.9rem;
     }
 
-    /* Ajusta o player do Spotify para uma versão compacta */
     #music iframe[src*="spotify"] {
         height: 152px;
     }
 
-    /* Ajusta o botão de download para ficar mais proporcional */
     .download-button {
         padding: 12px 20px;
         font-size: 1rem;
@@ -384,9 +376,20 @@ footer {
         font-size: 1.2rem;
     }
 
-    /* Diminui o logo do rodapé */
     .footer-logo {
         height: 120px;
     }
+
+    /* --- NOVAS ALTERAÇÕES SOLICITADAS AQUI --- */
+
+    /* Corrige o posicionamento da dica "Clique para copiar" */
+    .email-button-wrapper {
+        margin-top: 20px; /* Adiciona um espaço acima do botão de e-mail */
+    }
+
+    /* Reduz o tamanho da fonte na biografia para melhor encaixe */
+    #about p {
+        font-size: 0.9rem;
+        line-height: 1.5; /* Melhora a legibilidade com a fonte menor */
+    }
 }
-/* --- FIM DA ALTERAÇÃO --- */
