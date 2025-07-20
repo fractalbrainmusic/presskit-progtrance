@@ -216,10 +216,14 @@ iframe { border: none; width: 100%; }
     filter: brightness(0) invert(1) drop-shadow(0 0 8px var(--primary-color));
 }
 
+/* --- ALTERAÇÃO SOLICITADA AQUI --- */
 .email-button-wrapper {
     position: relative;
-    display: inline-block;
+    display: block; /* Garante que o wrapper ocupe a largura disponível */
+    width: 100%;    /* Força a ocupar 100% da largura do contêiner flex */
+    text-align: center; /* Centraliza o conteúdo (o botão) dentro dele */
 }
+/* --- FIM DA ALTERAÇÃO --- */
 
 .copy-tooltip {
     position: absolute;
@@ -394,15 +398,15 @@ footer {
         gap: 0;
     }
 
-    /* --- ALTERAÇÃO SOLICITADA AQUI --- */
+    /* --- ALTERAÇÃO FINAL AQUI --- */
     .copy-tooltip {
         position: relative; 
-        order: -1; /* Força a dica a aparecer ANTES do botão de WhatsApp no fluxo */
-        margin-bottom: 15px; /* Espaço abaixo da dica */
-        margin-top: 0; /* Remove a margem superior que não é mais necessária */
-
-        /* Reativa a animação e o estilo, mas mantém o posicionamento relativo */
+        order: -1; 
+        margin-bottom: 15px; 
+        margin-top: 0; 
         background: none;
-        animation: fade-in-out 4s ease-in-out infinite; /* <-- ANIMAÇÃO REATIVADA */
+        animation: fade-in-out 4s ease-in-out infinite;
+        text-align: center;
+        width: 100%; /* Garante que o texto tenha espaço para se centralizar */
     }
 }
