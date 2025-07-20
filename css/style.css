@@ -380,16 +380,17 @@ footer {
         height: 120px;
     }
 
-    /* --- NOVAS ALTERAÇÕES SOLICITADAS AQUI --- */
-
-    /* Corrige o posicionamento da dica "Clique para copiar" */
     .email-button-wrapper {
-        margin-top: 20px; /* Adiciona um espaço acima do botão de e-mail */
+        margin-top: 20px;
     }
 
-    /* Reduz o tamanho da fonte na biografia para melhor encaixe */
     #about p {
         font-size: 0.9rem;
-        line-height: 1.5; /* Melhora a legibilidade com a fonte menor */
+        line-height: 1.5;
+    }
+
+    #about {
+        /* --- ALTERAÇÃO SOLICITADA AQUI --- */
+        background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url('../images/bio-fractal-vertical.png');
     }
 }
