@@ -216,14 +216,10 @@ iframe { border: none; width: 100%; }
     filter: brightness(0) invert(1) drop-shadow(0 0 8px var(--primary-color));
 }
 
-/* --- ALTERAÇÃO SOLICITADA AQUI --- */
 .email-button-wrapper {
     position: relative;
-    display: block; /* Garante que o wrapper ocupe a largura disponível */
-    width: 100%;    /* Força a ocupar 100% da largura do contêiner flex */
-    text-align: center; /* Centraliza o conteúdo (o botão) dentro dele */
+    display: inline-block;
 }
-/* --- FIM DA ALTERAÇÃO --- */
 
 .copy-tooltip {
     position: absolute;
@@ -398,15 +394,18 @@ footer {
         gap: 0;
     }
 
-    /* --- ALTERAÇÃO FINAL AQUI --- */
     .copy-tooltip {
-        position: relative; 
-        order: -1; 
-        margin-bottom: 15px; 
-        margin-top: 0; 
+        position: relative;
+        bottom: auto;
+        left: auto;
+        transform: none;
+        margin: 15px 0;
+        animation: none;
+        opacity: 1;
+        visibility: visible;
         background: none;
-        animation: fade-in-out 4s ease-in-out infinite;
-        text-align: center;
-        width: 100%; /* Garante que o texto tenha espaço para se centralizar */
+        font-size: 0.8rem;
+        /* --- ALTERAÇÃO SOLICITADA AQUI --- */
+        text-align: center; /* Centraliza o texto */
     }
 }
