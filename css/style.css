@@ -391,24 +391,22 @@ footer {
         background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url('../images/bio-fractal-vertical.png');
     }
     
-    /* --- CORREÇÃO FINAL PARA A SEÇÃO DE CONTATO --- */
     .contact-buttons-container {
         flex-direction: column;
         align-items: stretch;
-        gap: 0; /* Remove o gap para controlar o espaçamento manualmente */
+        gap: 0;
     }
-
-    /* Centraliza o wrapper do botão de e-mail */
+    
     .contact-buttons-container .email-button-wrapper {
         text-align: center; 
     }
     
-    /* Regra para o texto da dica no mobile */
+    /* --- ALTERAÇÃO SOLICITADA AQUI --- */
     .copy-tooltip {
-        position: relative; /* Remove o posicionamento absoluto */
-        display: block; /* Garante que ele ocupe sua própria linha */
-        order: -1; /* Coloca a dica ANTES de tudo no container */
-        margin: 0 0 15px 0; /* Adiciona 15px de espaço ABAIXO da dica */
+        position: relative;
+        order: -1;
+        /* Define margens iguais em cima e embaixo para centralizar */
+        margin: 15px 0 15px 0;
         background: none;
         animation: fade-in-out 4s ease-in-out infinite;
         text-align: center;
