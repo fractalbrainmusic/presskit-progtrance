@@ -380,10 +380,6 @@ footer {
         height: 120px;
     }
 
-    .email-button-wrapper {
-        margin-top: 0;
-    }
-
     #about p {
         font-size: 0.85rem;
         line-height: 1.45;
@@ -398,17 +394,15 @@ footer {
         gap: 0;
     }
 
+    /* --- ALTERAÇÃO SOLICITADA AQUI --- */
     .copy-tooltip {
-        position: relative;
-        bottom: auto;
-        left: auto;
-        transform: none;
-        margin: 15px 0;
-        animation: none;
-        opacity: 1;
-        visibility: visible;
+        position: relative; 
+        order: -1; /* Força a dica a aparecer ANTES do botão de WhatsApp no fluxo */
+        margin-bottom: 15px; /* Espaço abaixo da dica */
+        margin-top: 0; /* Remove a margem superior que não é mais necessária */
+
+        /* Reativa a animação e o estilo, mas mantém o posicionamento relativo */
         background: none;
-        font-size: 0.8rem;
-        text-align: center;
+        animation: fade-in-out 4s ease-in-out infinite; /* <-- ANIMAÇÃO REATIVADA */
     }
 }
