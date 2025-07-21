@@ -48,36 +48,41 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
 
-    // --- Funcionalidade de Copiar E-mail (agora funciona, pois 'translations' já existe) ---
+    // --- Funcionalidade de Copiar E-mail ---
     const emailButton = document.getElementById('copy-email-button');
     if (emailButton) {
         const emailButtonText = document.getElementById('email-button-text');
-        
+        const copyTooltip = document.getElementById('copy-tooltip'); // Pega o elemento da dica
+
         emailButton.addEventListener('click', function(event) {
             event.preventDefault(); 
             const emailToCopy = 'fractalbrainmusic@gmail.com';
 
             navigator.clipboard.writeText(emailToCopy).then(function() {
-                // Usa document.documentElement.lang para saber o idioma atual da página
                 const currentLang = document.documentElement.lang || 'pt-br';
+                
+                // Salva o texto original da dica ANTES de escondê-la
+                const originalTooltipText = copyTooltip.textContent; 
+                
                 emailButtonText.textContent = translations[currentLang].emailCopied;
+                copyTooltip.style.visibility = 'hidden'; // Esconde a dica temporariamente
 
                 setTimeout(function() {
                     emailButtonText.textContent = translations[currentLang].emailBooking;
+                    copyTooltip.textContent = originalTooltipText; // Restaura o texto original da dica
+                    copyTooltip.style.visibility = 'visible'; // Mostra a dica novamente
                 }, 2000);
             });
         });
     }
 
-    // --- Funcionalidade de Tradução (agora funciona, pois 'translations' já existe) ---
+    // --- Funcionalidade de Tradução ---
     const translateButton = document.getElementById('translate-button');
     if (translateButton) {
         translateButton.addEventListener('click', function() {
-            // Verifica o idioma atual e decide para qual traduzir
             const currentLang = document.documentElement.lang === 'pt-br' ? 'en' : 'pt-br';
-            document.documentElement.lang = currentLang; // Atualiza o idioma na tag <html>
+            document.documentElement.lang = currentLang;
 
-            // Loop para traduzir todos os elementos com IDs
             for (const key in translations[currentLang]) {
                 const element = document.getElementById(key);
                 if (element) {
