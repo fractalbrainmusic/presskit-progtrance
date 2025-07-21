@@ -29,12 +29,24 @@ body {
     overflow: hidden;
 }
 
+/* --- ALTERAÇÃO SOLICITADA AQUI: CAMADA DE COR VERDE --- */
+#background-animation::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary-color);
+    opacity: 0.10; /* 10% de tom verde */
+    mix-blend-mode: multiply; /* Modo de mesclagem para um efeito natural */
+}
+
 .background-video {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* --- ALTERAÇÃO SOLICITADA AQUI --- */
-    opacity: 0.25; /* Aumentado de 0.15 para 0.25 */
+    opacity: 0.25;
     filter: contrast(1.2) saturate(1.2); 
 }
 
