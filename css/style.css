@@ -375,7 +375,6 @@ footer {
     .contact-button {
         padding: 10px 15px;
         font-size: 0.9rem;
-        /* Largura automática, não 100% */
         width: auto; 
     }
 
@@ -396,10 +395,11 @@ footer {
         height: 120px;
     }
 
+    /* --- ALTERAÇÃO SOLICITADA AQUI --- */
     #about p {
         font-size: 0.8rem;
         line-height: 1.4;
-        animation: none;
+        /* A linha 'animation: none;' foi removida, reativando a animação 'pulse-glow' */
         text-shadow: 0 0 5px #000;
     }
 
@@ -409,42 +409,26 @@ footer {
     
     .contact-buttons-container {
         flex-direction: column;
-        align-items: center; /* Centraliza todos os itens */
+        align-items: center;
         gap: 15px;
     }
     
     .copy-tooltip {
-        /* Esconde a dica flutuante do desktop */
         display: none;
     }
 
-    /* Recria a dica como um elemento de texto separado para mobile */
     .email-button-wrapper::before {
         content: "Clique para copiar o E-mail";
-        display: block; /* Garante que fique em sua própria linha */
+        display: block;
         color: var(--primary-color);
         font-size: 0.8rem;
         text-align: center;
-        margin-bottom: 15px; /* Espaço entre a dica e o botão de e-mail */
-        animation: fade-in-out 4s ease-in-out infinite; /* Reativa a animação */
+        margin-bottom: 15px;
+        animation: fade-in-out 4s ease-in-out infinite;
     }
 }
 
 @media (min-width: 769px) {
     .desktop-video { display: block; }
     .mobile-video { display: none; }
-}```
-
-### **O que foi corrigido (A Lógica Final e Correta):**
-
-1.  **CSS para Celular (`@media`):**
-    *   **`.contact-buttons-container`:** Está configurado para `flex-direction: column` (empilhar) e `align-items: center` (centralizar horizontalmente). O `gap` de 15px cria o espaço vertical.
-    *   **`.contact-button`:** A regra `width: 100%` foi removida, permitindo que os botões tenham sua largura natural e sejam centralizados pelo `align-items` do contêiner pai.
-    *   **`.copy-tooltip`:** A dica flutuante do desktop agora é **completamente escondida** no celular com `display: none;`.
-    *   **`.email-button-wrapper::before`**: Esta é a "mágica". Criamos um **novo elemento de texto virtual** (`::before`) que só existe no celular.
-        *   `content: "Clique para copiar o E-mail";` define o texto.
-        *   `display: block;` e `text-align: center;` garantem que ele seja um bloco centralizado.
-        *   `margin-bottom: 15px;` cria o espaço perfeito entre ele e o botão de e-mail.
-        *   `animation: fade-in-out...` reativa a animação de piscar.
-
-Peço desculpas pela longa e tortuosa jornada nesta seção. Com esta correção final, que separa completamente a lógica da dica para desktop e mobile, o resultado será exatamente o que você pediu em ambas as telas, sem mais conflitos de layout.
+}
