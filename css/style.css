@@ -102,31 +102,20 @@ section {
 }
 #about { background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url('../images/bio-fractal.jpg'); background-size: cover; background-position: center center; position: relative; }
 
-/* --- ALTERAÇÃO SOLICITADA AQUI: ANIMAÇÃO OTIMIZADA --- */
+/* --- ALTERAÇÃO #1: ANIMAÇÃO ORIGINAL RESTAURADA --- */
 #about p { 
     color: #ffffff; 
     position: relative; 
     z-index: 2; 
-    /* Aplica duas animações separadas e leves */
-    animation: 
-        bio-text-pulse 4s ease-in-out infinite,
-        bio-text-glow 4s ease-in-out infinite;
-    /* Adiciona uma sombra de texto base, que não será animada */
-    text-shadow: 0 0 8px rgba(0, 255, 153, 0.5);
+    animation: pulse-glow 4s ease-in-out infinite; 
 }
 
-/* Animação de pulso (tamanho), que é muito leve */
-@keyframes bio-text-pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.02); }
+/* Animação original de pulso e brilho (pesada para celular) */
+@keyframes pulse-glow { 
+    0% { text-shadow: 0 0 5px #000, 0 0 8px #000, 0 0 7px var(--primary-color); transform: scale(1); } 
+    50% { text-shadow: 0 0 5px #000, 0 0 8px #000, 0 0 15px var(--primary-color), 0 0 25px var(--primary-color); transform: scale(1.02); } 
+    100% { text-shadow: 0 0 5px #000, 0 0 8px #000, 0 0 7px var(--primary-color); transform: scale(1); } 
 }
-
-/* Animação de brilho (opacidade), que é muito leve */
-@keyframes bio-text-glow {
-    0%, 100% { opacity: 0.8; }
-    50% { opacity: 1; }
-}
-/* A animação antiga @keyframes pulse-glow foi removida */
 
 @keyframes header-pulse-glow {
     0% {
@@ -418,14 +407,12 @@ footer {
         height: 120px;
     }
 
+    /* --- ALTERAÇÃO #2: OTIMIZAÇÃO PARA CELULAR --- */
     #about p {
         font-size: 0.8rem;
         line-height: 1.4;
-        text-shadow: 0 0 5px #000;
-        /* Reativando a animação otimizada no mobile */
-        animation: 
-            bio-text-pulse 4s ease-in-out infinite,
-            bio-text-glow 4s ease-in-out infinite;
+        animation: none; /* Desativa a animação pesada no celular */
+        text-shadow: 0 0 5px #000; /* Mantém uma sombra estática para legibilidade */
     }
 
     #about {
