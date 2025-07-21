@@ -361,6 +361,8 @@ footer {
     .contact-button {
         padding: 10px 15px;
         font-size: 0.9rem;
+        width: 100%;
+        justify-content: center;
     }
 
     #music iframe[src*="spotify"] {
@@ -391,27 +393,33 @@ footer {
         background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url('../images/bio-fractal-vertical.png');
     }
     
-    /* --- CORREÇÃO FINAL E DEFINITIVA PARA A SEÇÃO DE CONTATO --- */
     .contact-buttons-container {
-        flex-direction: column; /* Empilha os itens */
-        align-items: center; /* Centraliza todos os itens horizontalmente */
-        gap: 15px; /* Adiciona um espaço vertical limpo entre os itens */
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
     }
-
-    /* A dica de cópia agora é invisível no desktop e visível no mobile */
-    .copy-tooltip {
-        display: none; /* Escondido por padrão (desktop) */
-    }
-
-    /* No mobile, a dica de cópia é revelada e estilizada */
-    .email-button-wrapper .copy-tooltip {
-        display: block;
-        position: static; /* Remove o posicionamento absoluto */
-        order: -1; /* Coloca a dica ANTES do botão de e-mail */
-        margin-bottom: 15px; /* Cria o espaço entre a dica e o botão de e-mail */
-        animation: fade-in-out 4s ease-in-out infinite;
-        background: none;
-        width: 100%;
+    
+    .contact-buttons-container .email-button-wrapper {
+        width: 100%; /* Garante que o wrapper ocupe a largura total */
         text-align: center;
+    }
+    
+    .copy-tooltip {
+        display: none; /* Esconde a dica do desktop */
+    }
+    
+    /* --- CORREÇÃO FINAL E DEFINITIVA --- */
+    #contact .copy-tooltip {
+        display: block;
+        position: static;
+        order: -1;
+        margin: 0;
+        padding-top: 15px; /* Espaço ACIMA da dica (empurra o botão do whats para cima) */
+        padding-bottom: 15px; /* Espaço ABAIXO da dica (empurra o botão de email para baixo) */
+        background: none;
+        animation: fade-in-out 4s ease-in-out infinite;
+        text-align: center;
+        width: 100%;
+        font-size: 0.8rem;
     }
 }
