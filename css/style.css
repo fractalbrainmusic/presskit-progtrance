@@ -361,8 +361,6 @@ footer {
     .contact-button {
         padding: 10px 15px;
         font-size: 0.9rem;
-        width: 100%;
-        justify-content: center;
     }
 
     #music iframe[src*="spotify"] {
@@ -393,13 +391,27 @@ footer {
         background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url('../images/bio-fractal-vertical.png');
     }
     
+    /* --- CORREÇÃO FINAL E DEFINITIVA PARA A SEÇÃO DE CONTATO --- */
     .contact-buttons-container {
-        flex-direction: column;
-        gap: 15px; /* Adiciona um espaço vertical entre os botões */
+        flex-direction: column; /* Empilha os itens */
+        align-items: center; /* Centraliza todos os itens horizontalmente */
+        gap: 15px; /* Adiciona um espaço vertical limpo entre os itens */
     }
 
-    .email-button-wrapper {
-        width: 100%; /* Faz o wrapper ocupar toda a largura */
-        text-align: center; /* Centraliza o botão dentro do wrapper */
+    /* A dica de cópia agora é invisível no desktop e visível no mobile */
+    .copy-tooltip {
+        display: none; /* Escondido por padrão (desktop) */
+    }
+
+    /* No mobile, a dica de cópia é revelada e estilizada */
+    .email-button-wrapper .copy-tooltip {
+        display: block;
+        position: static; /* Remove o posicionamento absoluto */
+        order: -1; /* Coloca a dica ANTES do botão de e-mail */
+        margin-bottom: 15px; /* Cria o espaço entre a dica e o botão de e-mail */
+        animation: fade-in-out 4s ease-in-out infinite;
+        background: none;
+        width: 100%;
+        text-align: center;
     }
 }
