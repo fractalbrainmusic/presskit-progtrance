@@ -22,12 +22,18 @@
 </head>
 <body>
 
+    <!-- --- ALTERAÇÃO SOLICITADA AQUI: VÍDEOS RESPONSIVOS --- -->
     <div id="background-animation">
-        <video autoplay loop muted playsinline poster="images/preview-image.png">
+        <!-- Vídeo para DESKTOP (horizontal) -->
+        <video class="background-video desktop-video" autoplay loop muted playsinline poster="images/preview-image.png">
+            <source src="assets/background-video-horizontal.mp4" type="video/mp4">
+        </video>
+        <!-- Vídeo para CELULAR (original) -->
+        <video class="background-video mobile-video" autoplay loop muted playsinline poster="images/preview-image.png">
             <source src="assets/background-video.mp4" type="video/mp4">
-            Seu navegador não suporta a tag de vídeo.
         </video>
     </div>
+    <!-- --- FIM DA ALTERAÇÃO --- -->
 
     <div class="container">
 
@@ -122,7 +128,6 @@
                         <i class="fab fa-whatsapp"></i> <span id="whatsapp-text">WhatsApp Booking</span>
                     </a>
                     
-                    <!-- --- ESTRUTURA REVERTIDA PARA A VERSÃO ESTÁVEL --- -->
                     <div class="email-button-wrapper">
                         <span id="copy-tooltip" class="copy-tooltip">Clique para copiar o E-mail</span>
                         <a href="#" id="copy-email-button" class="contact-button email">

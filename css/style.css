@@ -29,7 +29,7 @@ body {
     overflow: hidden;
 }
 
-#background-animation video {
+.background-video {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -337,6 +337,9 @@ footer {
 /* --- ESTILOS PARA DISPOSITIVOS MÓVEIS --- */
 @media (max-width: 768px) {
 
+    .desktop-video { display: none; } /* Esconde o vídeo de desktop */
+    .mobile-video { display: block; } /* Mostra o vídeo de celular */
+
     body {
         padding: 10px;
     }
@@ -361,8 +364,8 @@ footer {
     .contact-button {
         padding: 10px 15px;
         font-size: 0.9rem;
-        width: auto; /* Reverte para largura automática */
-        justify-content: flex-start; /* Reverte para alinhamento padrão */
+        width: 100%;
+        justify-content: center;
     }
 
     #music iframe[src*="spotify"] {
@@ -393,7 +396,6 @@ footer {
         background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url('../images/bio-fractal-vertical.png');
     }
     
-    /* --- CORREÇÃO FINAL E DEFINITIVA PARA A SEÇÃO DE CONTATO --- */
     .contact-buttons-container {
         flex-direction: column;
         align-items: center;
@@ -401,22 +403,31 @@ footer {
     }
 
     .copy-tooltip {
-        /* Para mobile, a dica se torna um bloco de texto normal */
+        display: none;
+    }
+    
+    .email-button-wrapper:hover .copy-tooltip {
+       visibility: hidden;
+       opacity: 0;
+    }
+
+    #contact .copy-tooltip {
         display: block;
         position: static;
-        transform: none;
+        order: -1;
+        margin: 0;
+        padding-top: 15px;
+        padding-bottom: 15px;
         background: none;
         animation: fade-in-out 4s ease-in-out infinite;
         text-align: center;
         width: 100%;
-        margin: 0;
-        padding: 0;
-        /* A dica de desktop é escondida, e esta é mostrada */
+        font-size: 0.8rem;
     }
-    
-    .email-button-wrapper:hover .copy-tooltip {
-       /* Desativa o aparecimento no hover do desktop */
-       visibility: hidden;
-       opacity: 0;
-    }
+}
+
+/* --- ALTERAÇÃO SOLICITADA AQUI: ESTILOS PARA DESKTOP --- */
+@media (min-width: 769px) {
+    .desktop-video { display: block; } /* Mostra o vídeo de desktop */
+    .mobile-video { display: none; } /* Esconde o vídeo de celular */
 }
