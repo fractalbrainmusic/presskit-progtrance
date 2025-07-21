@@ -361,6 +361,8 @@ footer {
     .contact-button {
         padding: 10px 15px;
         font-size: 0.9rem;
+        width: 100%;
+        justify-content: center;
     }
 
     #music iframe[src*="spotify"] {
@@ -391,27 +393,13 @@ footer {
         background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url('../images/bio-fractal-vertical.png');
     }
     
-    /* --- CORREÇÃO FINAL PARA A SEÇÃO DE CONTATO MOBILE --- */
     .contact-buttons-container {
-        flex-direction: column; /* Empilha os itens */
-        align-items: center; /* Centraliza horizontalmente */
-        gap: 15px; /* Adiciona um espaço entre os botões */
+        flex-direction: column;
+        gap: 15px; /* Adiciona um espaço vertical entre os botões */
     }
 
-    .copy-tooltip {
-        position: static; /* Comportamento normal, sem flutuar */
-        display: block; /* Garante que ocupe sua própria linha */
-        order: -1; /* Coloca a dica ANTES do botão de WhatsApp */
-        margin: 0 0 0 0; /* Zera margens para um controle limpo */
-        background: none;
-        animation: fade-in-out 4s ease-in-out infinite;
-        text-align: center;
-        width: 100%;
-        font-size: 0.8rem;
-    }
-    
-    /* Move a dica para ficar entre os dois botões */
-    .contact-buttons-container .email-button-wrapper {
-        order: 1; /* Coloca o e-mail depois do WhatsApp */
+    .email-button-wrapper {
+        width: 100%; /* Faz o wrapper ocupar toda a largura */
+        text-align: center; /* Centraliza o botão dentro do wrapper */
     }
 }
