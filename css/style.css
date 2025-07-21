@@ -361,8 +361,8 @@ footer {
     .contact-button {
         padding: 10px 15px;
         font-size: 0.9rem;
-        width: 100%;
-        justify-content: center;
+        width: auto; /* Reverte para largura automática */
+        justify-content: flex-start; /* Reverte para alinhamento padrão */
     }
 
     #music iframe[src*="spotify"] {
@@ -393,33 +393,30 @@ footer {
         background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url('../images/bio-fractal-vertical.png');
     }
     
+    /* --- CORREÇÃO FINAL E DEFINITIVA PARA A SEÇÃO DE CONTATO --- */
     .contact-buttons-container {
         flex-direction: column;
         align-items: center;
-        gap: 0;
+        gap: 15px;
     }
-    
-    .contact-buttons-container .email-button-wrapper {
-        width: 100%; /* Garante que o wrapper ocupe a largura total */
-        text-align: center;
-    }
-    
+
     .copy-tooltip {
-        display: none; /* Esconde a dica do desktop */
-    }
-    
-    /* --- CORREÇÃO FINAL E DEFINITIVA --- */
-    #contact .copy-tooltip {
+        /* Para mobile, a dica se torna um bloco de texto normal */
         display: block;
         position: static;
-        order: -1;
-        margin: 0;
-        padding-top: 15px; /* Espaço ACIMA da dica (empurra o botão do whats para cima) */
-        padding-bottom: 15px; /* Espaço ABAIXO da dica (empurra o botão de email para baixo) */
+        transform: none;
         background: none;
         animation: fade-in-out 4s ease-in-out infinite;
         text-align: center;
         width: 100%;
-        font-size: 0.8rem;
+        margin: 0;
+        padding: 0;
+        /* A dica de desktop é escondida, e esta é mostrada */
+    }
+    
+    .email-button-wrapper:hover .copy-tooltip {
+       /* Desativa o aparecimento no hover do desktop */
+       visibility: hidden;
+       opacity: 0;
     }
 }
