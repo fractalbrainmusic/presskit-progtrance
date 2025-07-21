@@ -29,7 +29,7 @@ body {
     overflow: hidden;
 }
 
-/* --- ALTERAÇÃO SOLICITADA AQUI: CAMADA DE COR VERDE --- */
+/* --- ALTERAÇÃO SOLICITADA AQUI: TOM DE VERDE REDUZIDO --- */
 #background-animation::after {
     content: '';
     position: absolute;
@@ -38,8 +38,8 @@ body {
     width: 100%;
     height: 100%;
     background-color: var(--primary-color);
-    opacity: 0.10; /* 10% de tom verde */
-    mix-blend-mode: multiply; /* Modo de mesclagem para um efeito natural */
+    opacity: 0.05; /* 5% de tom verde (reduzido de 10%) */
+    mix-blend-mode: multiply; 
 }
 
 .background-video {
@@ -376,6 +376,8 @@ footer {
     .contact-button {
         padding: 10px 15px;
         font-size: 0.9rem;
+        width: 100%;
+        justify-content: center;
     }
 
     #music iframe[src*="spotify"] {
@@ -412,9 +414,14 @@ footer {
         gap: 15px;
     }
 
+    .email-button-wrapper {
+        width: 100%; 
+        text-align: center;
+    }
+
     .copy-tooltip {
-        position: static;
         display: block;
+        position: static;
         order: -1;
         margin: 0;
         padding-top: 15px;
