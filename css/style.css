@@ -101,9 +101,32 @@ section {
     border-left: 5px solid var(--primary-color); 
 }
 #about { background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url('../images/bio-fractal.jpg'); background-size: cover; background-position: center center; position: relative; }
-#about p { color: #ffffff; position: relative; z-index: 2; animation: pulse-glow 4s ease-in-out infinite; }
 
-@keyframes pulse-glow { 0% { text-shadow: 0 0 5px #000, 0 0 8px #000, 0 0 7px var(--primary-color); transform: scale(1); } 50% { text-shadow: 0 0 5px #000, 0 0 8px #000, 0 0 15px var(--primary-color), 0 0 25px var(--primary-color); transform: scale(1.02); } 100% { text-shadow: 0 0 5px #000, 0 0 8px #000, 0 0 7px var(--primary-color); transform: scale(1); } }
+/* --- ALTERAÇÃO SOLICITADA AQUI: ANIMAÇÃO OTIMIZADA --- */
+#about p { 
+    color: #ffffff; 
+    position: relative; 
+    z-index: 2; 
+    /* Aplica duas animações separadas e leves */
+    animation: 
+        bio-text-pulse 4s ease-in-out infinite,
+        bio-text-glow 4s ease-in-out infinite;
+    /* Adiciona uma sombra de texto base, que não será animada */
+    text-shadow: 0 0 8px rgba(0, 255, 153, 0.5);
+}
+
+/* Animação de pulso (tamanho), que é muito leve */
+@keyframes bio-text-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+
+/* Animação de brilho (opacidade), que é muito leve */
+@keyframes bio-text-glow {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 1; }
+}
+/* A animação antiga @keyframes pulse-glow foi removida */
 
 @keyframes header-pulse-glow {
     0% {
@@ -395,12 +418,14 @@ footer {
         height: 120px;
     }
 
-    /* --- ALTERAÇÃO SOLICITADA AQUI --- */
     #about p {
         font-size: 0.8rem;
         line-height: 1.4;
-        /* A linha 'animation: none;' foi removida, reativando a animação 'pulse-glow' */
         text-shadow: 0 0 5px #000;
+        /* Reativando a animação otimizada no mobile */
+        animation: 
+            bio-text-pulse 4s ease-in-out infinite,
+            bio-text-glow 4s ease-in-out infinite;
     }
 
     #about {
