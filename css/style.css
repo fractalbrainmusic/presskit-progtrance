@@ -33,7 +33,8 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.15;
+    /* --- ALTERAÇÃO SOLICITADA AQUI --- */
+    opacity: 0.25; /* Aumentado de 0.15 para 0.25 */
     filter: contrast(1.2) saturate(1.2); 
 }
 
@@ -336,9 +337,8 @@ footer {
 
 /* --- ESTILOS PARA DISPOSITIVOS MÓVEIS --- */
 @media (max-width: 768px) {
-
-    .desktop-video { display: none; } /* Esconde o vídeo de desktop */
-    .mobile-video { display: block; } /* Mostra o vídeo de celular */
+    .desktop-video { display: none; }
+    .mobile-video { display: block; }
 
     body {
         padding: 10px;
@@ -364,8 +364,6 @@ footer {
     .contact-button {
         padding: 10px 15px;
         font-size: 0.9rem;
-        width: 100%;
-        justify-content: center;
     }
 
     #music iframe[src*="spotify"] {
@@ -403,17 +401,8 @@ footer {
     }
 
     .copy-tooltip {
-        display: none;
-    }
-    
-    .email-button-wrapper:hover .copy-tooltip {
-       visibility: hidden;
-       opacity: 0;
-    }
-
-    #contact .copy-tooltip {
-        display: block;
         position: static;
+        display: block;
         order: -1;
         margin: 0;
         padding-top: 15px;
@@ -424,10 +413,14 @@ footer {
         width: 100%;
         font-size: 0.8rem;
     }
+
+    .email-button-wrapper:hover .copy-tooltip {
+       visibility: hidden;
+       opacity: 0;
+    }
 }
 
-/* --- ALTERAÇÃO SOLICITADA AQUI: ESTILOS PARA DESKTOP --- */
 @media (min-width: 769px) {
-    .desktop-video { display: block; } /* Mostra o vídeo de desktop */
-    .mobile-video { display: none; } /* Esconde o vídeo de celular */
+    .desktop-video { display: block; }
+    .mobile-video { display: none; }
 }
