@@ -29,7 +29,6 @@ body {
     overflow: hidden;
 }
 
-/* --- ALTERAÇÃO SOLICITADA AQUI: TOM DE VERDE REDUZIDO --- */
 #background-animation::after {
     content: '';
     position: absolute;
@@ -38,7 +37,7 @@ body {
     width: 100%;
     height: 100%;
     background-color: var(--primary-color);
-    opacity: 0.05; /* 5% de tom verde (reduzido de 10%) */
+    opacity: 0.05;
     mix-blend-mode: multiply; 
 }
 
@@ -376,8 +375,8 @@ footer {
     .contact-button {
         padding: 10px 15px;
         font-size: 0.9rem;
-        width: 100%;
-        justify-content: center;
+        /* Largura automática, não 100% */
+        width: auto; 
     }
 
     #music iframe[src*="spotify"] {
@@ -410,36 +409,42 @@ footer {
     
     .contact-buttons-container {
         flex-direction: column;
-        align-items: center;
+        align-items: center; /* Centraliza todos os itens */
         gap: 15px;
     }
-
-    .email-button-wrapper {
-        width: 100%; 
-        text-align: center;
-    }
-
+    
     .copy-tooltip {
-        display: block;
-        position: static;
-        order: -1;
-        margin: 0;
-        padding-top: 15px;
-        padding-bottom: 15px;
-        background: none;
-        animation: fade-in-out 4s ease-in-out infinite;
-        text-align: center;
-        width: 100%;
-        font-size: 0.8rem;
+        /* Esconde a dica flutuante do desktop */
+        display: none;
     }
 
-    .email-button-wrapper:hover .copy-tooltip {
-       visibility: hidden;
-       opacity: 0;
+    /* Recria a dica como um elemento de texto separado para mobile */
+    .email-button-wrapper::before {
+        content: "Clique para copiar o E-mail";
+        display: block; /* Garante que fique em sua própria linha */
+        color: var(--primary-color);
+        font-size: 0.8rem;
+        text-align: center;
+        margin-bottom: 15px; /* Espaço entre a dica e o botão de e-mail */
+        animation: fade-in-out 4s ease-in-out infinite; /* Reativa a animação */
     }
 }
 
 @media (min-width: 769px) {
     .desktop-video { display: block; }
     .mobile-video { display: none; }
-}
+}```
+
+### **O que foi corrigido (A Lógica Final e Correta):**
+
+1.  **CSS para Celular (`@media`):**
+    *   **`.contact-buttons-container`:** Está configurado para `flex-direction: column` (empilhar) e `align-items: center` (centralizar horizontalmente). O `gap` de 15px cria o espaço vertical.
+    *   **`.contact-button`:** A regra `width: 100%` foi removida, permitindo que os botões tenham sua largura natural e sejam centralizados pelo `align-items` do contêiner pai.
+    *   **`.copy-tooltip`:** A dica flutuante do desktop agora é **completamente escondida** no celular com `display: none;`.
+    *   **`.email-button-wrapper::before`**: Esta é a "mágica". Criamos um **novo elemento de texto virtual** (`::before`) que só existe no celular.
+        *   `content: "Clique para copiar o E-mail";` define o texto.
+        *   `display: block;` e `text-align: center;` garantem que ele seja um bloco centralizado.
+        *   `margin-bottom: 15px;` cria o espaço perfeito entre ele e o botão de e-mail.
+        *   `animation: fade-in-out...` reativa a animação de piscar.
+
+Peço desculpas pela longa e tortuosa jornada nesta seção. Com esta correção final, que separa completamente a lógica da dica para desktop e mobile, o resultado será exatamente o que você pediu em ambas as telas, sem mais conflitos de layout.
