@@ -101,16 +101,8 @@ section {
     border-left: 5px solid var(--primary-color); 
 }
 #about { background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url('../images/bio-fractal.jpg'); background-size: cover; background-position: center center; position: relative; }
+#about p { color: #ffffff; position: relative; z-index: 2; animation: pulse-glow 4s ease-in-out infinite; }
 
-/* --- ALTERAÇÃO #1: ANIMAÇÃO ORIGINAL RESTAURADA --- */
-#about p { 
-    color: #ffffff; 
-    position: relative; 
-    z-index: 2; 
-    animation: pulse-glow 4s ease-in-out infinite; 
-}
-
-/* Animação original de pulso e brilho (pesada para celular) */
 @keyframes pulse-glow { 
     0% { text-shadow: 0 0 5px #000, 0 0 8px #000, 0 0 7px var(--primary-color); transform: scale(1); } 
     50% { text-shadow: 0 0 5px #000, 0 0 8px #000, 0 0 15px var(--primary-color), 0 0 25px var(--primary-color); transform: scale(1.02); } 
@@ -384,10 +376,12 @@ footer {
         font-size: 1.5rem;
     }
 
+    /* --- ALTERAÇÃO SOLICITADA AQUI --- */
     .contact-button {
         padding: 10px 15px;
         font-size: 0.9rem;
-        width: auto; 
+        width: 100%; /* Força o botão a ocupar 100% da largura */
+        justify-content: center; /* Centraliza o conteúdo (ícone+texto) dentro do botão */
     }
 
     #music iframe[src*="spotify"] {
@@ -407,12 +401,11 @@ footer {
         height: 120px;
     }
 
-    /* --- ALTERAÇÃO #2: OTIMIZAÇÃO PARA CELULAR --- */
     #about p {
         font-size: 0.8rem;
         line-height: 1.4;
-        animation: none; /* Desativa a animação pesada no celular */
-        text-shadow: 0 0 5px #000; /* Mantém uma sombra estática para legibilidade */
+        animation: none;
+        text-shadow: 0 0 5px #000;
     }
 
     #about {
