@@ -22,18 +22,14 @@
 </head>
 <body>
 
-    <!-- --- ALTERAÇÃO SOLICITADA AQUI: VÍDEOS RESPONSIVOS --- -->
     <div id="background-animation">
-        <!-- Vídeo para DESKTOP (horizontal) -->
         <video class="background-video desktop-video" autoplay loop muted playsinline poster="images/preview-image.png">
             <source src="assets/background-video-horizontal.mp4" type="video/mp4">
         </video>
-        <!-- Vídeo para CELULAR (original) -->
         <video class="background-video mobile-video" autoplay loop muted playsinline poster="images/preview-image.png">
             <source src="assets/background-video.mp4" type="video/mp4">
         </video>
     </div>
-    <!-- --- FIM DA ALTERAÇÃO --- -->
 
     <div class="container">
 
@@ -132,7 +128,11 @@
                         <span id="copy-tooltip" class="copy-tooltip">Clique para copiar o E-mail</span>
                         <a href="#" id="copy-email-button" class="contact-button email">
                             <i class="fas fa-envelope"></i>
-                            <span id="email-button-text">E-mail Booking: fractalbrainmusic@gmail.com</span>
+                            <span id="email-button-text">
+                                <!-- --- ALTERAÇÃO AQUI --- -->
+                                <span class="email-booking-title">E-mail Booking:</span>
+                                <span class="email-address">fractalbrainmusic@gmail.com</span>
+                            </span>
                         </a>
                     </div>
                 </div>

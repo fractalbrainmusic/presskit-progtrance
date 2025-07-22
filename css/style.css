@@ -164,7 +164,7 @@ iframe { border: none; width: 100%; }
     border-radius: 5px; 
     transition: all 0.3s; 
     cursor: pointer;
-    box-sizing: border-box; /* Garante que padding e border não aumentem a largura total */
+    box-sizing: border-box;
 }
 
 .contact-button.email {
@@ -378,13 +378,21 @@ footer {
     }
 
     .contact-button {
-        padding: 12px 15px; /* Aumenta um pouco o padding vertical e diminui o horizontal */
-        font-size: 0.85rem; /* Reduz um pouco mais a fonte */
-        gap: 8px; /* Diminui o espaço entre o ícone e o texto */
+        padding: 12px 15px;
+        font-size: 0.85rem;
+        gap: 8px;
     }
-    
-    .contact-button.email span {
-        word-break: break-all; /* Permite que o e-mail quebre a linha se necessário */
+
+    /* --- ALTERAÇÃO SOLICITADA AQUI --- */
+    .contact-button.email #email-button-text {
+        display: flex;
+        flex-direction: column; /* Coloca os textos um sobre o outro */
+        align-items: center; /* Centraliza os textos */
+        line-height: 1.2; /* Melhora o espaçamento entre as linhas */
+    }
+
+    .email-address {
+        font-size: 0.75rem; /* Fonte menor apenas para o endereço de e-mail */
     }
 
     #music iframe[src*="spotify"] {
