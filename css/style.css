@@ -145,6 +145,10 @@ iframe { border: none; width: 100%; }
 .platform-logo { height: 50px; width: auto; margin-top: 15px; transition: transform 0.3s ease-in-out; }
 .platform-logo:hover { transform: scale(1.1); filter: drop-shadow(0 0 8px var(--primary-color)); }
 
+/* --- SEÇÃO DE CONTATO CORRIGIDA --- */
+#contact {
+    text-align: center; /* Centraliza todo o conteúdo da seção */
+}
 .contact-buttons-container {
     display: flex;
     justify-content: center;
@@ -180,6 +184,40 @@ iframe { border: none; width: 100%; }
 .contact-button i {
     font-size: 1.2rem;
 }
+
+.email-button-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.copy-tooltip {
+    position: absolute;
+    bottom: 100%; 
+    left: 50%;
+    transform: translateX(-50%);
+    
+    background-color: var(--card-color);
+    color: var(--primary-color);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    white-space: nowrap;
+    margin-bottom: 10px;
+    
+    pointer-events: none;
+    
+    animation: fade-in-out 4s ease-in-out infinite;
+}
+
+@keyframes fade-in-out {
+    0% { opacity: 0; }
+    25% { opacity: 1; }
+    75% { opacity: 1; }
+    100% { opacity: 0; }
+}
+/* --- FIM DA SEÇÃO --- */
+
 
 .downloads { text-align: center; margin-top: 30px; }
 .download-icon { width: 80px; transition: transform 0.3s; }
@@ -230,38 +268,6 @@ iframe { border: none; width: 100%; }
 
 .white-filter-icon:hover {
     filter: brightness(0) invert(1) drop-shadow(0 0 8px var(--primary-color));
-}
-
-.email-button-wrapper {
-    position: relative;
-    display: inline-block;
-}
-
-.copy-tooltip {
-    position: absolute;
-    bottom: 100%; 
-    left: 50%;
-    transform: translateX(-50%);
-    
-    background-color: var(--card-color);
-    color: var(--primary-color);
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 0.8rem;
-    font-weight: bold;
-    white-space: nowrap;
-    margin-bottom: 10px;
-    
-    pointer-events: none;
-    
-    animation: fade-in-out 4s ease-in-out infinite;
-}
-
-@keyframes fade-in-out {
-    0% { opacity: 0; }
-    25% { opacity: 1; }
-    75% { opacity: 1; }
-    100% { opacity: 0; }
 }
 
 .translation-container {
@@ -376,14 +382,9 @@ footer {
         font-size: 1.5rem;
     }
 
-    /* --- ALTERAÇÃO SOLICITADA AQUI --- */
     .contact-button {
         padding: 10px 15px;
         font-size: 0.9rem;
-        width: 90%; /* Força uma largura ligeiramente menor que o contêiner */
-        max-width: 400px; /* Define uma largura máxima para evitar que fique muito grande */
-        justify-content: center;
-        box-sizing: border-box; /* Garante que padding e border não aumentem a largura total */
     }
 
     #music iframe[src*="spotify"] {
@@ -414,14 +415,15 @@ footer {
         background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url('../images/bio-fractal-vertical.png');
     }
     
+    /* --- CORREÇÃO FINAL E DEFINITIVA PARA A SEÇÃO DE CONTATO --- */
     .contact-buttons-container {
         flex-direction: column;
         align-items: center;
         gap: 15px;
     }
-    
+
     .copy-tooltip {
-        display: none;
+        display: none; /* Esconde a dica do desktop */
     }
 
     .email-button-wrapper::before {
