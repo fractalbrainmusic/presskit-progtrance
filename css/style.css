@@ -377,6 +377,23 @@ footer {
         font-size: 1.5rem;
     }
 
+    .contact-button {
+        padding: 12px 15px;
+        font-size: 0.85rem;
+        gap: 8px;
+    }
+
+    .contact-button.email #email-button-text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        line-height: 1.2;
+    }
+
+    .email-address {
+        font-size: 0.75rem;
+    }
+
     #music iframe[src*="spotify"] {
         height: 152px;
     }
@@ -424,14 +441,11 @@ footer {
         margin-bottom: 15px;
         animation: fade-in-out 4s ease-in-out infinite;
     }
-    
+
     /* --- ALTERAÇÃO SOLICITADA AQUI --- */
-    .contact-button {
-        width: 90%;
-        max-width: 320px; /* Um valor máximo para tablets */
+    .contact-button.email {
+        min-width: 240px;
         justify-content: center;
-        padding: 12px 10px;
-        font-size: 0.9rem;
     }
 }
 
