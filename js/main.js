@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-    // --- O "dicionário" de traduções ---
     const translations = {
         'pt-br': {
             'title-project': 'O Projeto',
@@ -16,8 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
             'contact-text': 'Para shows, remixes e colaborações:',
             'whatsapp-text': 'WhatsApp Booking',
             'copy-tooltip': 'Clique para copiar o E-mail',
-            /* --- ALTERAÇÃO SOLICITADA AQUI --- */
-            'emailBooking': '<span class="email-booking-title">E-mail Booking:</span><span class="email-address"> fractalbrainmusic@gmail.com</span>', // Espaço adicionado antes de 'fractalbrain'
+            'emailBooking': '<span class="email-booking-title">E-mail Booking:</span><span class="email-address">fractalbrainmusic@gmail.com</span>',
             'emailCopied': 'Email Copiado!',
             'title-materials': 'Materiais de Imprensa',
             'materials-button-text': 'Download Presskit & Materiais',
@@ -39,8 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
             'contact-text': 'For bookings, remixes, and collaborations:',
             'whatsapp-text': 'WhatsApp Booking',
             'copy-tooltip': 'Click to copy E-mail',
-            /* --- ALTERAÇÃO SOLICITADA AQUI --- */
-            'emailBooking': '<span class="email-booking-title">E-mail Booking:</span><span class="email-address"> fractalbrainmusic@gmail.com</span>', // Space added before 'fractalbrain'
+            'emailBooking': '<span class="email-booking-title">E-mail Booking:</span><span class="email-address">fractalbrainmusic@gmail.com</span>',
             'emailCopied': 'Email Copied!',
             'title-materials': 'Press Materials',
             'materials-button-text': 'Download Presskit & Materials',
@@ -50,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
 
-    // --- Funcionalidade de Copiar E-mail ---
+    // --- Funcionalidade de Copiar E-mail (Lógica Corrigida) ---
     const emailButton = document.getElementById('copy-email-button');
     if (emailButton) {
         const emailButtonText = document.getElementById('email-button-text');
@@ -59,17 +56,21 @@ document.addEventListener('DOMContentLoaded', function() {
             event.preventDefault(); 
             const emailToCopy = 'fractalbrainmusic@gmail.com';
 
+            // 1. Mede o tamanho do botão ANTES de mudar o texto
             const originalWidth = emailButton.offsetWidth;
             const originalHeight = emailButton.offsetHeight;
 
             navigator.clipboard.writeText(emailToCopy).then(function() {
                 const currentLang = document.documentElement.lang || 'pt-br';
                 
+                // 2. Aplica o tamanho medido como um estilo fixo
                 emailButton.style.width = `${originalWidth}px`;
                 emailButton.style.height = `${originalHeight}px`;
                 
+                // 3. Muda o texto para "Email Copiado!"
                 emailButtonText.innerHTML = translations[currentLang].emailCopied;
 
+                // 4. Após 2 segundos, remove o estilo fixo e restaura o texto original
                 setTimeout(function() {
                     emailButton.style.width = '';
                     emailButton.style.height = '';
@@ -94,6 +95,4 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-});```
-
-Com este ajuste final, o espaço no botão de e-mail será restaurado corretamente após a cópia, resolvendo o bug visual no desktop.
+});
