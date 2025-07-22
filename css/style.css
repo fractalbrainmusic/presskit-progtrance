@@ -139,8 +139,7 @@ section {
 h2 { color: var(--primary-color); border-bottom: 2px solid #333; padding-bottom: 10px; margin-bottom: 15px;  }
 h2:not(:first-of-type) { margin-top: 50px; }
 .player-box { margin-bottom: 20px; }
-.player-box h3 { margin-bottom: 10px; color: #fff; }
-iframe { border: none; width: 100%; }
+iframe { border: none; width: 100%; display: block; }
 .platform-box { text-align: center; }
 .platform-logo { height: 50px; width: auto; margin-top: 15px; transition: transform 0.3s ease-in-out; }
 .platform-logo:hover { transform: scale(1.1); filter: drop-shadow(0 0 8px var(--primary-color)); }
@@ -182,11 +181,9 @@ iframe { border: none; width: 100%; }
     font-size: 1.2rem;
 }
 
-/* --- ALTERAÇÃO SOLICITADA AQUI --- */
 .email-address {
-    padding-left: 0.25em; /* Adiciona um pequeno espaço à esquerda, relativo ao tamanho da fonte */
+    padding-left: 0.25em;
 }
-/* --- FIM DA ALTERAÇÃO --- */
 
 
 .downloads { text-align: center; margin-top: 30px; }
@@ -358,6 +355,19 @@ footer {
     font-size: 0.9rem;
 }
 
+/* --- ALTERAÇÃO SOLICITADA AQUI --- */
+#video-feature {
+    padding: 0;
+    aspect-ratio: 16 / 9;
+}
+
+#video-feature .player-box {
+    height: 100%;
+    margin-bottom: 0;
+}
+/* --- FIM DA ALTERAÇÃO --- */
+
+
 /* --- ESTILOS PARA DISPOSITIVOS MÓVEIS --- */
 @media (max-width: 768px) {
     .desktop-video { display: none; }
@@ -388,6 +398,9 @@ footer {
         padding: 12px 15px;
         font-size: 0.85rem;
         gap: 8px;
+        width: 90%;
+        max-width: 320px;
+        justify-content: center;
     }
 
     .contact-button.email #email-button-text {
