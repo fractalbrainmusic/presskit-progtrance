@@ -381,6 +381,7 @@ footer {
         padding: 12px 15px;
         font-size: 0.85rem;
         gap: 8px;
+        justify-content: center;
     }
 
     .contact-button.email #email-button-text {
@@ -440,12 +441,6 @@ footer {
         text-align: center;
         margin-bottom: 15px;
         animation: fade-in-out 4s ease-in-out infinite;
-    }
-
-    /* --- ALTERAÇÃO SOLICITADA AQUI --- */
-    .contact-button.email {
-        min-width: 240px;
-        justify-content: center;
     }
 }
 
