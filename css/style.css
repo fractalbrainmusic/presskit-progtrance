@@ -376,12 +376,9 @@ footer {
         font-size: 1.5rem;
     }
 
-    /* --- ALTERAÇÃO SOLICITADA AQUI --- */
     .contact-button {
         padding: 10px 15px;
         font-size: 0.9rem;
-        width: 100%; /* Força o botão a ocupar 100% da largura */
-        justify-content: center; /* Centraliza o conteúdo (ícone+texto) dentro do botão */
     }
 
     #music iframe[src*="spotify"] {
@@ -412,14 +409,11 @@ footer {
         background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url('../images/bio-fractal-vertical.png');
     }
     
+    /* --- CORREÇÃO FINAL E DEFINITIVA PARA A SEÇÃO DE CONTATO --- */
     .contact-buttons-container {
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-    }
-    
-    .copy-tooltip {
-        display: none;
+        flex-direction: column; /* Empilha os itens */
+        align-items: center; /* Centraliza horizontalmente */
+        gap: 15px; /* Adiciona espaço entre os itens */
     }
 
     .email-button-wrapper::before {
@@ -428,8 +422,13 @@ footer {
         color: var(--primary-color);
         font-size: 0.8rem;
         text-align: center;
-        margin-bottom: 15px;
+        margin-bottom: 15px; /* Espaço entre a dica e o botão de e-mail */
         animation: fade-in-out 4s ease-in-out infinite;
+    }
+    
+    /* Esconde a dica flutuante original no mobile */
+    .copy-tooltip {
+        display: none;
     }
 }
 
